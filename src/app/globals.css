@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #0B1F3A;
+    background-color: #FFFFFF;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-gold-400 to-gold-600 bg-clip-text text-transparent;
+  }
+  
+  .btn-primary {
+    @apply bg-gold-500 hover:bg-gold-600 text-white font-medium py-3 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent border-2 border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-white font-medium py-3 px-8 rounded-lg transition-all duration-300;
+  }
+  
+  .btn-outline-white {
+    @apply bg-transparent border-2 border-white text-white hover:bg-white hover:text-navy-500 font-medium py-3 px-8 rounded-lg transition-all duration-300;
+  }
+  
+  .card-premium {
+    @apply bg-white rounded-xl border border-navy-100 shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1;
+  }
+  
+  .section-padding {
+    @apply py-20 md:py-28;
+  }
+  
+  .gradient-navy {
+    background: linear-gradient(135deg, #0B1F3A 0%, #091832 100%);
+  }
+  
+  .gradient-gold {
+    background: linear-gradient(135deg, #C8A24D 0%, #A0833E 100%);
+  }
+}
+
+@layer utilities {
+  .animation-delay-100 {
+    animation-delay: 0.1s;
+  }
+  .animation-delay-200 {
+    animation-delay: 0.2s;
+  }
+  .animation-delay-300 {
+    animation-delay: 0.3s;
+  }
+  .animation-delay-400 {
+    animation-delay: 0.4s;
+  }
+  .animation-delay-500 {
+    animation-delay: 0.5s;
+  }
+  .animation-delay-600 {
+    animation-delay: 0.6s;
+  }
+}
