@@ -115,7 +115,7 @@ export default function LeadFormSection() {
                   <User className="w-4 h-4 inline mr-1" /> Full Name *
                 </label>
                 <input type="text" name="name" required value={formData.name} onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-navy-200 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-lg border border-navy-200 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 outline-none transition-all text-navy-700 placeholder:text-navy-300"
                   placeholder="John Doe" />
               </div>
               <div>
@@ -123,7 +123,7 @@ export default function LeadFormSection() {
                   <Building className="w-4 h-4 inline mr-1" /> Company Name *
                 </label>
                 <input type="text" name="company" required value={formData.company} onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-navy-200 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-lg border border-navy-200 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 outline-none transition-all text-navy-700 placeholder:text-navy-300"
                   placeholder="Acme Corp" />
               </div>
               <div>
@@ -131,7 +131,7 @@ export default function LeadFormSection() {
                   <Briefcase className="w-4 h-4 inline mr-1" /> Designation *
                 </label>
                 <input type="text" name="designation" required value={formData.designation} onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-navy-200 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-lg border border-navy-200 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 outline-none transition-all text-navy-700 placeholder:text-navy-300"
                   placeholder="CEO, CHRO, etc." />
               </div>
               <div>
@@ -139,7 +139,7 @@ export default function LeadFormSection() {
                   <Mail className="w-4 h-4 inline mr-1" /> Email Address *
                 </label>
                 <input type="email" name="email" required value={formData.email} onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-navy-200 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-lg border border-navy-200 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 outline-none transition-all text-navy-700 placeholder:text-navy-300"
                   placeholder="john@company.com" />
               </div>
               <div className="md:col-span-2">
@@ -147,7 +147,7 @@ export default function LeadFormSection() {
                   <Phone className="w-4 h-4 inline mr-1" /> Phone Number *
                 </label>
                 <input type="tel" name="phone" required value={formData.phone} onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-navy-200 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-lg border border-navy-200 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 outline-none transition-all text-navy-700 placeholder:text-navy-300"
                   placeholder="+91 98765 43210" />
               </div>
               <div className="md:col-span-2">
@@ -155,7 +155,7 @@ export default function LeadFormSection() {
                   <MessageSquare className="w-4 h-4 inline mr-1" /> Hiring Requirement *
                 </label>
                 <select name="requirement" required value={formData.requirement} onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-navy-200 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 outline-none transition-all bg-white">
+                  className="w-full px-4 py-3 rounded-lg border border-navy-200 focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 outline-none transition-all bg-white text-navy-700">
                   <option value="">Select a service...</option>
                   <option value="executive-search">Executive Search</option>
                   <option value="leadership-hiring">Leadership Hiring</option>

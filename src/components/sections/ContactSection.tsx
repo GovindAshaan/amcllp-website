@@ -47,7 +47,7 @@ export default function ContactSection() {
 
             <div className="space-y-6">
               {[
-                { icon: Mail, label: 'Email', value: 'info@amcllp.co.in', href: 'mailto:info@amcllp.co.in' },
+                { icon: Mail, label: 'Email', value: 'govind@amcllp.co.in', href: 'mailto:govind@amcllp.co.in' },
                 { icon: Globe, label: 'Website', value: 'www.amcllp.co.in', href: 'https://www.amcllp.co.in' },
                 { icon: MapPin, label: 'Location', value: 'India', href: null },
               ].map((item) => (
