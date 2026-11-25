@@ -1,10 +1,13 @@
 'use client'
 
 import { useState } from 'react'
-import { Mail, Phone, MapPin, ArrowRight, CalendarClock } from 'lucide-react'
+import { Mail, Phone, MapPin, ArrowRight, CalendarClock, Loader2, ExternalLink } from 'lucide-react'
 import Navbar from '@/components/ui/Navbar'
 import ScrollProgressBar from '@/components/ui/ScrollProgressBar'
 import Footer from '@/components/ui/Footer'
+
+const CALENDLY_URL = 'https://calendly.com/amcventure/amc-venture-meeting'
+const WEB3FORMS_ACCESS_KEY = '42913500-91da-4ab1-b64d-8e971968643a'
 
 const verticalOptions = [
   'Ashan AI Labs — ScaleAIHub / BookFulfillment OS',
@@ -21,11 +24,69 @@ const contactChannels = [
 ]
 
 export default function ContactPage() {
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    company: '',
+    objective: verticalOptions[0],
+    message: '',
+  })
   const [submitted, setSubmitted] = useState(false)
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
+  const [error, setError] = useState('')
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const updateField = (field: keyof typeof form) => (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    setForm((prev) => ({ ...prev, [field]: e.target.value }))
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setSubmitted(true)
+    setStatus('sending')
+    setError('')
+
+    try {
+      // Build Calendly URL with pre-filled name + email
+      const calendlyURL = new URL(CALENDLY_URL)
+      if (form.name.trim()) calendlyURL.searchParams.set('name', form.name)
+      if (form.email.trim()) calendlyURL.searchParams.set('email', form.email)
+
+      // Send to Web3Forms (emails ashanlearninghub@gmail.com)
+      const formData = new FormData()
+      formData.append('access_key', WEB3FORMS_ACCESS_KEY)
+      formData.append('name', form.name)
+      formData.append('email', form.email)
+      formData.append('company', form.company)
+      formData.append('objective', form.objective)
+      formData.append('message', form.message)
+      formData.append('from_name', 'AMC Venture & Tech Group Website')
+      formData.append('subject', `New Lead from ${form.name || 'Website Visitor'} — ${form.objective || 'Consultation Request'}`)
+
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      })
+
+      const result = await res.json()
+
+      if (!result.success) {
+        setStatus('error')
+        setError(result.message || 'Failed to send your request. Please try again.')
+        return
+      }
+
+      setStatus('success')
+      setSubmitted(true)
+
+      // Open Calendly in new tab with pre-filled details
+      setTimeout(() => {
+        window.open(calendlyURL.toString(), '_blank', 'noopener,noreferrer')
+      }, 1200)
+    } catch {
+      setStatus('error')
+      setError('Could not reach the server. Please check your connection and try again.')
+    }
   }
 
   return (
@@ -89,8 +150,20 @@ export default function ContactPage() {
                   </div>
                   <h2 className="text-2xl font-display font-bold text-white">Request received.</h2>
                   <p className="text-white/50 mt-3 max-w-md mx-auto">
-                    Thanks for reaching out. A specialist from the relevant division will contact you shortly to schedule
-                    your strategy call.
+                    Thanks for reaching out — your details have been sent to the AMC venture team. We&apos;ve opened our
+                    scheduling calendar so you can lock in your strategy call right away.
+                  </p>
+                  <a
+                    href={`${CALENDLY_URL}?name=${encodeURIComponent(form.name)}&email=${encodeURIComponent(form.email)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-kinetic-primary inline-flex w-full sm:w-auto items-center justify-center gap-2 px-8 py-4 text-base mt-6 group"
+                  >
+                    Open My Scheduling Calendar
+                    <ExternalLink className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                  </a>
+                  <p className="text-xs text-white/35 mt-4">
+                    If the calendar didn&apos;t open automatically, click the button above.
                   </p>
                 </div>
               ) : (
@@ -102,6 +175,8 @@ export default function ContactPage() {
                         required
                         type="text"
                         placeholder="Your name"
+                        value={form.name}
+                        onChange={updateField('name')}
                         className="w-full rounded-xl bg-white/[0.03] border border-white/[0.08] px-4 py-3 text-sm text-white placeholder-white/25 focus:outline-none focus:border-electric-indigo-500/40 transition-colors"
                       />
                     </div>
@@ -111,6 +186,8 @@ export default function ContactPage() {
                         required
                         type="email"
                         placeholder="you@company.com"
+                        value={form.email}
+                        onChange={updateField('email')}
                         className="w-full rounded-xl bg-white/[0.03] border border-white/[0.08] px-4 py-3 text-sm text-white placeholder-white/25 focus:outline-none focus:border-electric-indigo-500/40 transition-colors"
                       />
                     </div>
@@ -121,13 +198,19 @@ export default function ContactPage() {
                     <input
                       type="text"
                       placeholder="Company name"
+                      value={form.company}
+                      onChange={updateField('company')}
                       className="w-full rounded-xl bg-white/[0.03] border border-white/[0.08] px-4 py-3 text-sm text-white placeholder-white/25 focus:outline-none focus:border-electric-indigo-500/40 transition-colors"
                     />
                   </div>
 
                   <div>
                     <label className="block text-xs text-white/40 mb-2 uppercase tracking-wider">Primary Objective</label>
-                    <select className="w-full rounded-xl bg-white/[0.03] border border-white/[0.08] px-4 py-3 text-sm text-white focus:outline-none focus:border-electric-indigo-500/40 transition-colors bg-[#0B101C]">
+                    <select
+                      value={form.objective}
+                      onChange={updateField('objective')}
+                      className="w-full rounded-xl bg-white/[0.03] border border-white/[0.08] px-4 py-3 text-sm text-white focus:outline-none focus:border-electric-indigo-500/40 transition-colors bg-[#0B101C]"
+                    >
                       {verticalOptions.map((o) => (
                         <option key={o} value={o} className="bg-[#0B101C] text-white">
                           {o}
@@ -141,13 +224,34 @@ export default function ContactPage() {
                     <textarea
                       rows={4}
                       placeholder="Briefly describe your project, search, or growth goal..."
+                      value={form.message}
+                      onChange={updateField('message')}
                       className="w-full rounded-xl bg-white/[0.03] border border-white/[0.08] px-4 py-3 text-sm text-white placeholder-white/25 focus:outline-none focus:border-electric-indigo-500/40 transition-colors resize-none"
                     />
                   </div>
 
-                  <button type="submit" className="btn-kinetic-primary w-full justify-center px-8 py-4 text-base gap-2 group">
-                    Schedule Partner Consultation
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                  {status === 'error' && (
+                    <div className="rounded-xl border border-red-500/25 bg-red-500/10 px-4 py-3 text-sm text-red-300">
+                      {error}
+                    </div>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={status === 'sending'}
+                    className="btn-kinetic-primary w-full justify-center px-8 py-4 text-base gap-2 group disabled:opacity-60 disabled:cursor-not-allowed"
+                  >
+                    {status === 'sending' ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        Sending your request...
+                      </>
+                    ) : (
+                      <>
+                        Schedule Partner Consultation
+                        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                      </>
+                    )}
                   </button>
                 </form>
               )}
