@@ -70,6 +70,10 @@
     @apply bg-gradient-to-r from-cyber-cyan-400 to-electric-indigo-500 bg-clip-text text-transparent;
   }
 
+  .text-gradient-venture {
+    @apply bg-gradient-to-r from-white via-venture-cyan-300 to-electric-indigo-400 bg-clip-text text-transparent;
+  }
+
   .btn-kinetic {
     @apply relative inline-flex items-center justify-center font-medium rounded-xl transition-all duration-500 ease-out overflow-hidden;
   }

@@ -1,48 +1,47 @@
-import { Mail, Phone, MapPin, Linkedin, Twitter, Github, Globe } from 'lucide-react'
+import { Mail, Phone, MapPin, Linkedin, Twitter, Globe } from 'lucide-react'
+import Logo from './Logo'
 
-const footerLinks = {
-  company: [
-    { label: 'About Us', href: '#about' },
-    { label: 'Our Services', href: '#services' },
-    { label: 'Industries', href: '#industries' },
-    { label: 'Success Stories', href: '#testimonials' },
-  ],
-  services: [
-    { label: 'Executive Search', href: '#services' },
-    { label: 'Leadership Hiring', href: '#services' },
-    { label: 'Talent Acquisition', href: '#services' },
-    { label: 'HR Consulting', href: '#services' },
-    { label: 'RPO', href: '#services' },
-  ],
-  legal: [
-    { label: 'Privacy Policy', href: '#' },
-    { label: 'Terms of Service', href: '#' },
-    { label: 'Cookie Policy', href: '#' },
-  ],
-}
+const companyLinks = [
+  { label: 'Group Home', href: '/' },
+  { label: 'About', href: '/contact' },
+  { label: 'Book a Strategy Call', href: '/contact' },
+]
+
+const verticalLinks = [
+  { label: 'Ashan AI Labs', href: '/ai-labs' },
+  { label: 'Ashan AI Engineering', href: '/engineering' },
+  { label: 'Prudent Headhunterz', href: '/prudent-headhunterz' },
+  { label: 'GrowthDesk', href: '/growthdesk' },
+]
+
+const productLinks = [
+  { label: 'ScaleAIHub', href: 'https://scaleaihub.in', external: true },
+  { label: 'BookFulfillment OS', href: '/ai-labs#bookfulfillment-os' },
+]
+
+const legalLinks = [
+  { label: 'Privacy Policy', href: '#' },
+  { label: 'Terms of Service', href: '#' },
+]
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#070A13] border-t border-white/[0.03] overflow-hidden">
-      {/* Subtle top glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px bg-gradient-to-r from-transparent via-electric-indigo-500/20 to-transparent" />
+    <footer className="relative bg-[#070A13] border-t border-white/[0.04] overflow-hidden">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-px bg-gradient-to-r from-transparent via-electric-indigo-500/25 to-transparent" />
+      <div className="absolute bottom-[-20%] left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-electric-indigo-500/5 blur-[140px] pointer-events-none" />
 
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24 relative z-10">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
-          {/* Company Overview - wider column */}
+          {/* Brand */}
           <div className="lg:col-span-4">
-            <div className="flex items-center gap-2 mb-5">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-electric-indigo-500/20 to-cyber-cyan-500/10 border border-electric-indigo-500/20 flex items-center justify-center">
-                <span className="text-xs font-bold text-electric-indigo-400">AM</span>
-              </div>
-              <span className="text-lg font-bold text-white">AMCLLP</span>
-            </div>
-            <p className="text-white/25 text-sm leading-relaxed mb-6 max-w-sm">
-              India's elite talent acquisition partner for the nation's most ambitious organizations.
-              We place the top 0.1% of Indian technical and leadership talent.
+            <Logo />
+            <p className="text-white/40 text-sm leading-relaxed mt-6 max-w-sm">
+              An integrated technology and business acceleration house uniting
+              <span className="text-white/70"> products, engineering, talent, and growth</span>
+              under one roof — an Ashans Management Consultancy LLP (AMCLLP) enterprise.
             </p>
-            <div className="flex gap-3">
-              {[Linkedin, Twitter, Github, Globe].map((Icon, i) => (
+            <div className="flex gap-3 mt-6">
+              {[Linkedin, Twitter, Globe].map((Icon, i) => (
                 <a
                   key={i}
                   href="#"
@@ -54,13 +53,13 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Company */}
           <div className="lg:col-span-2">
             <h4 className="text-xs font-semibold tracking-widest uppercase text-white/40 mb-5">Company</h4>
             <ul className="space-y-3">
-              {footerLinks.company.map((link) => (
+              {companyLinks.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="text-white/25 hover:text-white/70 transition-colors text-sm">
+                  <a href={link.href} className="text-white/35 hover:text-white/80 transition-colors text-sm">
                     {link.label}
                   </a>
                 </li>
@@ -68,13 +67,13 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Verticals */}
           <div className="lg:col-span-3">
-            <h4 className="text-xs font-semibold tracking-widest uppercase text-white/40 mb-5">Services</h4>
+            <h4 className="text-xs font-semibold tracking-widest uppercase text-white/40 mb-5">Operating Companies</h4>
             <ul className="space-y-3">
-              {footerLinks.services.map((link) => (
+              {verticalLinks.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="text-white/25 hover:text-white/70 transition-colors text-sm">
+                  <a href={link.href} className="text-white/35 hover:text-white/80 transition-colors text-sm">
                     {link.label}
                   </a>
                 </li>
@@ -82,10 +81,24 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* Products */}
           <div className="lg:col-span-3">
-            <h4 className="text-xs font-semibold tracking-widest uppercase text-white/40 mb-5">Contact</h4>
-            <ul className="space-y-4">
+            <h4 className="text-xs font-semibold tracking-widest uppercase text-white/40 mb-5">Flagship Products</h4>
+            <ul className="space-y-3">
+              {productLinks.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    target={link.external ? '_blank' : undefined}
+                    rel={link.external ? 'noopener noreferrer' : undefined}
+                    className="text-white/35 hover:text-electric-indigo-400 transition-colors text-sm"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <ul className="space-y-4 mt-7 pt-5 border-t border-white/[0.05]">
               <li className="flex items-start gap-3">
                 <div className="w-8 h-8 rounded-lg bg-white/[0.03] border border-white/[0.05] flex items-center justify-center flex-shrink-0">
                   <Mail className="w-4 h-4 text-white/30" />
@@ -99,22 +112,11 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-3">
                 <div className="w-8 h-8 rounded-lg bg-white/[0.03] border border-white/[0.05] flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-4 h-4 text-white/30" />
-                </div>
-                <div>
-                  <p className="text-[10px] text-white/20 tracking-wider uppercase mb-0.5">Phone</p>
-                  <a href="tel:+910000000000" className="text-white/50 hover:text-white/80 transition-colors text-sm">
-                    +91-00000-00000
-                  </a>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-lg bg-white/[0.03] border border-white/[0.05] flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-4 h-4 text-white/30" />
                 </div>
                 <div>
                   <p className="text-[10px] text-white/20 tracking-wider uppercase mb-0.5">Location</p>
-                  <span className="text-white/50 text-sm">India</span>
+                  <span className="text-white/50 text-sm">New Delhi, India</span>
                 </div>
               </li>
             </ul>
@@ -122,13 +124,14 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-white/[0.03] flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-white/15 text-xs">
-            © {new Date().getFullYear()} Ashans Management Consultancy LLP. All rights reserved.
+        <div className="mt-16 pt-8 border-t border-white/[0.04] flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
+          <p className="text-white/25 text-xs leading-relaxed max-w-2xl">
+            © 2026 AMC Venture &amp; Tech Group — Operating Division of Ashans Management Consultancy LLP (AMCLLP). New
+            Delhi, India.
           </p>
           <div className="flex gap-6">
-            {footerLinks.legal.map((link) => (
-              <a key={link.label} href={link.href} className="text-white/15 hover:text-white/40 transition-colors text-xs">
+            {legalLinks.map((link) => (
+              <a key={link.label} href={link.href} className="text-white/25 hover:text-white/50 transition-colors text-xs">
                 {link.label}
               </a>
             ))}
