@@ -67,7 +67,7 @@ export default function GroupHeroSection() {
               proprietary SaaS platforms at <span className="text-white/70">Ashan AI Labs</span> and bespoke systems at{' '}
               <span className="text-white/70">Ashan AI Engineering</span>, to executive search via{' '}
               <span className="text-white/70">Prudent Headhunterz</span> and ROI-obsessed acquisition at{' '}
-              <span className="text-white/70">GrowthDesk</span> — we provide the complete infrastructure to build and
+              <span className="text-white/70">GrowthDesk</span>  -  we provide the complete infrastructure to build and
               scale modern companies.
             </motion.p>
 

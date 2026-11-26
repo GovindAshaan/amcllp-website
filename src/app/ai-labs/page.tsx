@@ -1,9 +1,7 @@
 import type { Metadata } from 'next'
-import { Boxes, FileText, GraduationCap, BookOpen } from 'lucide-react'
 import VerticalPageLayout from '@/components/layout/VerticalPageLayout'
-import VerticalHeroSection from '@/components/sections/VerticalHeroSection'
+import DepthHeroHeader from '@/components/ui/DepthHeroHeader'
 import ProductShowcase from '@/components/sections/ProductShowcase'
-import { verticals } from '@/lib/verticals'
 
 export const metadata: Metadata = {
   title: 'Ashan AI Labs | AI Product Studio - ScaleAIHub & BookFulfillment OS',
@@ -11,15 +9,13 @@ export const metadata: Metadata = {
     'Ashan AI Labs is the proprietary R&D and SaaS venture arm of AMC Venture & Tech Group - home of ScaleAIHub, the AI career and placement operating system, and BookFulfillment OS, a multi-tenant publishing engine.',
 }
 
-const vertical = verticals.find((v) => v.slug === 'ai-labs')!
-
 const products = [
   {
     eyebrow: 'Product 01 · Career Intelligence',
     name: 'ScaleAIHub',
     tagline: 'The AI Career & Placement Operating System',
     description:
-      'Built for mid-to-senior professionals and university placement cells, ScaleAIHub combines 12 autonomous AI modules—including ATS Sniper, 4-Round Interview Simulator, LinkedIn & Naukri Optimizers, and a Counter-Offer Decision Engine—to help candidates engineer high-impact career jumps.',
+      'Built for mid-to-senior professionals and university placement cells, ScaleAIHub combines 12 autonomous AI modules including ATS Sniper, 4-Round Interview Simulator, LinkedIn and Naukri Optimizers, and a Counter-Offer Decision Engine to help candidates engineer high-impact career jumps.',
     features: [
       'ATS Sniper',
       '4-Round Interview Simulator',
@@ -51,10 +47,14 @@ const products = [
 export default function AILabsPage() {
   return (
     <VerticalPageLayout>
-      <VerticalHeroSection
-        vertical={vertical}
-        eyebrow="Building Commercial AI Software That Solves Real Bottlenecks."
-        badgeIcon={<Boxes className="w-3.5 h-3.5" />}
+      <DepthHeroHeader
+        eyebrow="Ashan AI Labs · AI Product Studio"
+        title={<>Autonomous AI, <span className="text-gradient-venture">Built to Eliminate Bottlenecks.</span></>}
+        subtitle="Our internal venture lab designs, builds, and scales production-grade AI software for high-impact commercial markets, including career mobility and digital publishing."
+        crumbLabel="Back to the ecosystem"
+        crumbHref="/"
+        primaryCta={{ label: 'Explore ScaleAIHub', href: '/ai-labs#scaleaihub' }}
+        secondaryCta={{ label: 'Explore All Divisions', href: '/#routing' }}
       />
       <ProductShowcase
         accentKey="indigo"

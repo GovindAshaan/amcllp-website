@@ -5,6 +5,8 @@ import { ArrowRight, Check } from 'lucide-react'
 import { cn } from '@/lib/cn'
 import type { AccentKey } from '@/lib/verticals'
 import { accents } from '@/lib/verticals'
+import { useTheme } from '@/components/providers/ThemeProvider'
+import TiltGlassCard from '@/components/ui/TiltGlassCard'
 
 export interface Product {
   eyebrow: string
@@ -27,11 +29,11 @@ interface ProductShowcaseProps {
 
 export default function ProductShowcase({ accentKey, products, eyebrow, title, subtitle }: ProductShowcaseProps) {
   const accent = accents[accentKey]
+  const { theme } = useTheme()
 
   return (
     <section className="relative py-20 md:py-28 overflow-hidden">
-      <div className="absolute inset-0 bg-[#070A13]" />
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/8 to-transparent" />
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
       <div className="container-custom relative z-10">
         <motion.div
@@ -57,8 +59,9 @@ export default function ProductShowcase({ accentKey, products, eyebrow, title, s
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-60px' }}
               transition={{ duration: 0.6 }}
-              className={cn('relative rounded-3xl border bg-white/[0.02] overflow-hidden p-8 md:p-12', accent.border)}
+              className={cn('relative', accent.border)}
             >
+              <TiltGlassCard tint={theme.glow} className={cn('p-8 md:p-12', accent.border)}>
               <div className={cn('absolute -top-24 -right-24 w-80 h-80 rounded-full blur-[130px] opacity-10', accent.bgSoft)} />
 
               <div className={cn('grid gap-10 items-center', i % 2 === 1 ? 'md:grid-cols-[1fr_0.9fr]' : 'md:grid-cols-[0.9fr_1fr]')}>
@@ -129,6 +132,7 @@ export default function ProductShowcase({ accentKey, products, eyebrow, title, s
                   </div>
                 </div>
               </div>
+              </TiltGlassCard>
             </motion.article>
           ))}
         </div>

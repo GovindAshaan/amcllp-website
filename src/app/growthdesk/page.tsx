@@ -1,18 +1,15 @@
 import type { Metadata } from 'next'
-import { FileText, Megaphone, MessageSquareText, TrendingUp } from 'lucide-react'
+import { FileText, Megaphone, MessageSquareText } from 'lucide-react'
 import VerticalPageLayout from '@/components/layout/VerticalPageLayout'
-import VerticalHeroSection from '@/components/sections/VerticalHeroSection'
+import DepthHeroHeader from '@/components/ui/DepthHeroHeader'
 import ServicePillarsGrid from '@/components/sections/ServicePillarsGrid'
 import VerticalCTASection from '@/components/sections/VerticalCTASection'
-import { verticals } from '@/lib/verticals'
 
 export const metadata: Metadata = {
   title: 'GrowthDesk | Performance Marketing & Funnel Engine',
   description:
-    'GrowthDesk builds done-for-you customer acquisition infrastructure - direct-response funnels, algorithmic paid media, and automated follow-up systems.',
+    'GrowthDesk builds done-for-you customer acquisition infrastructure: direct-response funnels, algorithmic paid media, and automated follow-up systems.',
 }
-
-const vertical = verticals.find((v) => v.slug === 'growthdesk')!
 
 const pillars = [
   {
@@ -53,11 +50,14 @@ const pillars = [
 export default function GrowthDeskPage() {
   return (
     <VerticalPageLayout>
-      <VerticalHeroSection
-        vertical={vertical}
-        eyebrow="Full-Funnel Performance Marketing Engineered for Predictable Pipeline."
-        subtext="GrowthDesk builds done-for-you customer acquisition infrastructure — combining direct-response funnels, algorithmic paid media, and automated follow-up systems."
-        badgeIcon={<TrendingUp className="w-3.5 h-3.5" />}
+      <DepthHeroHeader
+        eyebrow="GrowthDesk · Performance Marketing Engine"
+        title={<>Predictable Pipeline, <span className="text-gradient-venture">Engineered for ROI.</span></>}
+        subtitle="GrowthDesk builds done-for-you customer acquisition infrastructure combining direct-response funnels, algorithmic paid media, and automated follow-up systems."
+        crumbLabel="Back to the ecosystem"
+        crumbHref="/"
+        primaryCta={{ label: 'Book a Growth Audit', href: '/contact' }}
+        secondaryCta={{ label: 'Explore All Divisions', href: '/#routing' }}
       />
       <ServicePillarsGrid
         accentKey="amber"
@@ -70,7 +70,7 @@ export default function GrowthDeskPage() {
         accentKey="amber"
         eyebrow="Ready to scale acquisition?"
         title="Let's turn ad spend into qualified pipeline."
-        description="Get a free audit of your current funnels, paid channels, and follow-up automation — and a clear roadmap to more predictable revenue."
+        description="Get a free audit of your current funnels, paid channels, and follow-up automation, and a clear roadmap to more predictable revenue."
         cta="Book a Growth Audit"
       />
     </VerticalPageLayout>

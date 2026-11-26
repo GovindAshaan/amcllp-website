@@ -1,18 +1,15 @@
 import type { Metadata } from 'next'
-import { Boxes, Bot, Puzzle, Code2 } from 'lucide-react'
+import { Bot, Puzzle, Code2 } from 'lucide-react'
 import VerticalPageLayout from '@/components/layout/VerticalPageLayout'
-import VerticalHeroSection from '@/components/sections/VerticalHeroSection'
+import DepthHeroHeader from '@/components/ui/DepthHeroHeader'
 import ServicePillarsGrid from '@/components/sections/ServicePillarsGrid'
 import VerticalCTASection from '@/components/sections/VerticalCTASection'
-import { verticals } from '@/lib/verticals'
 
 export const metadata: Metadata = {
   title: 'Ashan AI Engineering | Custom AI Software & SaaS Development',
   description:
     'Ashan AI Engineering partners with founders and enterprise teams to architect, build, and deploy custom AI applications, scalable SaaS platforms, and autonomous workflow infrastructure.',
 }
-
-const vertical = verticals.find((v) => v.slug === 'engineering')!
 
 const pillars = [
   {
@@ -53,11 +50,14 @@ const pillars = [
 export default function EngineeringPage() {
   return (
     <VerticalPageLayout>
-      <VerticalHeroSection
-        vertical={vertical}
-        eyebrow="Custom AI Software Engineering Built for Production, Not Just Demos."
-        subtext="Ashan AI Engineering partners with founders and enterprise teams to architect, build, and deploy custom AI applications, scalable SaaS platforms, and autonomous workflow infrastructure."
-        badgeIcon={<Boxes className="w-3.5 h-3.5" />}
+      <DepthHeroHeader
+        eyebrow="Ashan AI Engineering · Custom AI & Software"
+        title={<><span className="text-gradient-venture">Custom AI Systems</span> Engineered for Real Production.</>}
+        subtitle="Ashan AI Engineering partners with founders and enterprise teams to architect, build, and deploy custom AI applications, scalable SaaS platforms, and autonomous workflow infrastructure."
+        crumbLabel="Back to the ecosystem"
+        crumbHref="/"
+        primaryCta={{ label: 'Book Architecture Call', href: '/contact' }}
+        secondaryCta={{ label: 'Explore All Divisions', href: '/#routing' }}
       />
       <ServicePillarsGrid
         accentKey="cyan"
@@ -66,12 +66,12 @@ export default function EngineeringPage() {
         title="From architecture to deployment, owned end-to-end."
       />
 
-      <section className="relative py-10 md:py-14 overflow-hidden bg-[#070A13]">
+      <section className="relative py-10 md:py-14 overflow-hidden">
         <div className="container-custom z-10 relative">
-          <div className="rounded-2xl border border-venture-cyan-500/20 bg-venture-cyan-500/5 p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="rounded-2xl border border-venture-cyan-500/20 bg-venture-cyan-500/5 p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 backdrop-blur-md">
             <p className="text-white/60 text-sm max-w-xl">
               <span className="text-white font-semibold">No bloated agency overhead.</span> Built by engineers with deep
-              enterprise pedigree — you get production-grade systems without the agency markup.
+              enterprise pedigree. You get production-grade systems without the agency markup.
             </p>
             <a href="/contact" className="btn-kinetic px-6 py-3 text-sm gap-2 border border-venture-cyan-500/30 text-venture-cyan-400 hover:bg-venture-cyan-500/10">
               Scope Your Engineering Project →

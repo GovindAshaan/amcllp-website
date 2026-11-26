@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import { usePathname } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X, ChevronDown, CalendarClock, Link as LinkIcon } from 'lucide-react'
 import { cn } from '@/lib/cn'
@@ -25,6 +26,12 @@ export default function Navbar() {
   const [labOpen, setLabOpen] = useState(false)
   const [mobileLabOpen, setMobileLabOpen] = useState(false)
   const labRef = useRef<HTMLDivElement>(null)
+  const pathname = usePathname() ?? '/'
+
+  const isActive = (href: string) => {
+    if (href === '/') return pathname === '/'
+    return pathname.startsWith(href)
+  }
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50)
@@ -44,9 +51,17 @@ export default function Navbar() {
 
   const linkClass = () =>
     cn(
-      'px-3.5 py-2 text-sm font-medium rounded-lg transition-all duration-300',
+      'relative px-3.5 py-2 text-sm font-medium rounded-lg transition-all duration-300',
       'text-white/55 hover:text-white hover:bg-white/[0.05]'
     )
+
+  const ActivePill = () => (
+    <motion.span
+      layoutId="nav-active-pill"
+      transition={{ type: 'spring', bounce: 0.35, duration: 0.55 }}
+      className="absolute inset-0 rounded-lg bg-white/[0.1] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.08)]"
+    />
+  )
 
   return (
     <motion.nav
@@ -68,6 +83,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-1">
             {primaryLinks.map((link) => (
               <a key={link.label} href={link.href} onClick={() => setLabOpen(false)} className={linkClass()}>
+                {isActive(link.href) && <ActivePill />}
                 {link.label}
               </a>
             ))}
@@ -80,6 +96,7 @@ export default function Navbar() {
               onMouseLeave={() => setLabOpen(false)}
             >
               <a href="/ai-labs" className={cn(linkClass(), 'inline-flex items-center gap-1')} onClick={() => setLabOpen(false)}>
+                {isActive('/ai-labs') && <ActivePill />}
                 Ashan AI Labs
                 <ChevronDown className={cn('w-3.5 h-3.5 transition-transform duration-300', labOpen && 'rotate-180')} />
               </a>

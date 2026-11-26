@@ -1,25 +1,22 @@
 import type { Metadata } from 'next'
-import { Crown, Code2, ClipboardCheck, Users } from 'lucide-react'
+import { Crown, Code2, ClipboardCheck } from 'lucide-react'
 import VerticalPageLayout from '@/components/layout/VerticalPageLayout'
-import VerticalHeroSection from '@/components/sections/VerticalHeroSection'
+import DepthHeroHeader from '@/components/ui/DepthHeroHeader'
 import ServicePillarsGrid from '@/components/sections/ServicePillarsGrid'
 import VerticalCTASection from '@/components/sections/VerticalCTASection'
-import { verticals } from '@/lib/verticals'
 
 export const metadata: Metadata = {
   title: 'Prudent Headhunterz | Executive Search & HR Consulting',
   description:
-    'Prudent Headhunterz bridges technical depth and leadership assessment - premier executive search, technical hiring, and HR consulting for enterprises and funded startups.',
+    'Prudent Headhunterz bridges technical depth and leadership assessment: premier executive search, technical hiring, and HR consulting for enterprises and funded startups.',
 }
-
-const vertical = verticals.find((v) => v.slug === 'prudent-headhunterz')!
 
 const pillars = [
   {
     icon: <Crown className="w-6 h-6" />,
     title: 'CXO & Leadership Search',
     description:
-      'Targeted executive search for VP, Director, Engineering Head, and C-Suite mandates — built on over a decade of enterprise recruitment pedigree.',
+      'Targeted executive search for VP, Director, Engineering Head, and C-Suite mandates  -  built on over a decade of enterprise recruitment pedigree.',
     points: [
       'C-Suite & VP mandates',
       'Engineering & product leaders',
@@ -30,7 +27,7 @@ const pillars = [
     icon: <Code2 className="w-6 h-6" />,
     title: 'Technical & Product Hiring',
     description:
-      'Deep candidate screening led by former software engineers — evaluating real architectural capability instead of surface-level resume keywords.',
+      'Deep candidate screening led by former software engineers  -  evaluating real architectural capability instead of surface-level resume keywords.',
     points: [
       'Engineer-led technical vetting',
       'Real architecture & systems assessment',
@@ -41,7 +38,7 @@ const pillars = [
     icon: <ClipboardCheck className="w-6 h-6" />,
     title: 'HR Strategy & Offer Advisory',
     description:
-      'Compensation benchmarking, retention frameworks, and talent mapping for scaling teams — so offers close and people stay.',
+      'Compensation benchmarking, retention frameworks, and talent mapping for scaling teams  -  so offers close and people stay.',
     points: [
       'Compensation benchmarking',
       'Retention frameworks',
@@ -53,11 +50,14 @@ const pillars = [
 export default function PrudentHeadhunterzPage() {
   return (
     <VerticalPageLayout>
-      <VerticalHeroSection
-        vertical={vertical}
-        eyebrow="Executive Search & HR Consulting Led by Practitioners Who Know Tech."
-        subtext="Prudent Headhunterz bridges the gap between technical depth and leadership assessment — helping enterprises and funded startups hire high-impact leaders without months of wasted interviews."
-        badgeIcon={<Users className="w-3.5 h-3.5" />}
+      <DepthHeroHeader
+        eyebrow="Prudent Headhunterz · Executive Search & HR"
+        title={<>Hire Leaders Who <span className="text-gradient-venture">Actually Run It.</span></>}
+        subtitle="Prudent Headhunterz bridges the gap between technical depth and leadership assessment. We help enterprises and funded startups hire high-impact leaders without months of wasted interviews."
+        crumbLabel="Back to the ecosystem"
+        crumbHref="/"
+        primaryCta={{ label: 'Submit a Hiring Mandate', href: '/contact' }}
+        secondaryCta={{ label: 'Explore All Divisions', href: '/#routing' }}
       />
       <ServicePillarsGrid
         accentKey="emerald"
@@ -70,7 +70,7 @@ export default function PrudentHeadhunterzPage() {
         accentKey="emerald"
         eyebrow="Hiring now?"
         title="Let's find the leader who'll run it."
-        description="Tell us about your next critical hire and our recruiters will build a tailored search shortlist within days — not months."
+        description="Tell us about your next critical hire and our recruiters will build a tailored search shortlist within days, not months."
         cta="Submit a Hiring Mandate"
       />
     </VerticalPageLayout>

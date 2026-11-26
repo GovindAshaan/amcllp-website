@@ -38,7 +38,7 @@ export default function Footer() {
             <p className="text-white/40 text-sm leading-relaxed mt-6 max-w-sm">
               An integrated technology and business acceleration house uniting
               <span className="text-white/70"> products, engineering, talent, and growth</span>
-              under one roof — an Ashans Management Consultancy LLP (AMCLLP) enterprise.
+              under one roof  -  an Ashans Management Consultancy LLP (AMCLLP) enterprise.
             </p>
             <div className="flex gap-3 mt-6">
               {[Linkedin, Twitter, Globe].map((Icon, i) => (
@@ -126,7 +126,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-white/[0.04] flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4">
           <p className="text-white/25 text-xs leading-relaxed max-w-2xl">
-            © 2026 AMC Venture &amp; Tech Group — Operating Division of Ashans Management Consultancy LLP (AMCLLP). New
+            © 2026 AMC Venture &amp; Tech Group  -  Operating Division of Ashans Management Consultancy LLP (AMCLLP). New
             Delhi, India.
           </p>
           <div className="flex gap-6">

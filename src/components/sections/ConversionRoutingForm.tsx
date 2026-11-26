@@ -4,20 +4,20 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, Boxes, Code2, Users, TrendingUp, Check } from 'lucide-react'
 import { cn } from '@/lib/cn'
-import type { AccentKey } from '@/lib/verticals'
+import type { VerticalSlug } from '@/lib/verticals'
 
 const options = [
-  { key: 'ai-labs' as AccentKey, label: 'Ashan AI Labs', sublabel: 'ScaleAIHub / BookFulfillment OS', icon: Boxes, route: '/ai-labs' },
-  { key: 'engineering' as AccentKey, label: 'Ashan AI Engineering', sublabel: 'Custom AI / SaaS Build', icon: Code2, route: '/engineering' },
-  { key: 'prudent-headhunterz' as AccentKey, label: 'Prudent Headhunterz', sublabel: 'Executive & Tech Hiring', icon: Users, route: '/prudent-headhunterz' },
-  { key: 'growthdesk' as AccentKey, label: 'GrowthDesk', sublabel: 'Performance Marketing & Funnels', icon: TrendingUp, route: '/growthdesk' },
+  { key: 'ai-labs' as VerticalSlug, label: 'Ashan AI Labs', sublabel: 'ScaleAIHub / BookFulfillment OS', icon: Boxes, route: '/ai-labs' },
+  { key: 'engineering' as VerticalSlug, label: 'Ashan AI Engineering', sublabel: 'Custom AI / SaaS Build', icon: Code2, route: '/engineering' },
+  { key: 'prudent-headhunterz' as VerticalSlug, label: 'Prudent Headhunterz', sublabel: 'Executive & Tech Hiring', icon: Users, route: '/prudent-headhunterz' },
+  { key: 'growthdesk' as VerticalSlug, label: 'GrowthDesk', sublabel: 'Performance Marketing & Funnels', icon: TrendingUp, route: '/growthdesk' },
 ]
 
-const accentText: Record<AccentKey, { border: string; text: string; bg: string }> = {
-  indigo: { border: 'border-electric-indigo-500', text: 'text-electric-indigo-300', bg: 'bg-electric-indigo-500' },
-  cyan: { border: 'border-venture-cyan-500', text: 'text-venture-cyan-300', bg: 'bg-venture-cyan-500' },
-  emerald: { border: 'border-venture-emerald-500', text: 'text-venture-emerald-300', bg: 'bg-venture-emerald-500' },
-  amber: { border: 'border-venture-amber-500', text: 'text-venture-amber-300', bg: 'bg-venture-amber-500' },
+const accentText: Record<VerticalSlug, { border: string; text: string; bg: string }> = {
+  'ai-labs': { border: 'border-electric-indigo-500', text: 'text-electric-indigo-300', bg: 'bg-electric-indigo-500' },
+  engineering: { border: 'border-venture-cyan-500', text: 'text-venture-cyan-300', bg: 'bg-venture-cyan-500' },
+  'prudent-headhunterz': { border: 'border-venture-emerald-500', text: 'text-venture-emerald-300', bg: 'bg-venture-emerald-500' },
+  growthdesk: { border: 'border-venture-amber-500', text: 'text-venture-amber-300', bg: 'bg-venture-amber-500' },
 }
 
 export default function ConversionRoutingForm() {
@@ -31,7 +31,6 @@ export default function ConversionRoutingForm() {
 
   return (
     <section id="routing" className="relative py-20 md:py-28 overflow-hidden">
-      <div className="absolute inset-0 bg-[#0A0F1A]" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[500px] bg-electric-indigo-500/8 blur-[160px] rounded-full" />
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
@@ -110,7 +109,7 @@ export default function ConversionRoutingForm() {
                 className={cn('text-center text-sm mt-6', selected ? 'text-white/80' : 'text-venture-amber-300')}
               >
                 {selected
-                  ? `Great — routing you to ${options.find((o) => o.key === selected)?.label}. A specialist will reach out.`
+                  ? `Great  -  routing you to ${options.find((o) => o.key === selected)?.label}. A specialist will reach out.`
                   : 'Please select an objective above to continue.'}
               </motion.p>
             )}

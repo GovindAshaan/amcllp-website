@@ -6,9 +6,9 @@ import { Quote, ChevronLeft, ChevronRight, Star } from 'lucide-react'
 import AnimatedText from '../ui/AnimatedText'
 
 const testimonials = [
-  { id: 1, name: 'Vikram Mehta', role: 'Founder & CEO', company: 'TechVenture Solutions Pvt. Ltd.', content: 'AMCLLP transformed our leadership team within 90 days. Their understanding of our culture and strategic needs was exceptional. They did not just send resumes — they presented leaders who genuinely fit our vision. Our CTO placement has been transformational.', rating: 5 },
+  { id: 1, name: 'Vikram Mehta', role: 'Founder & CEO', company: 'TechVenture Solutions Pvt. Ltd.', content: 'AMCLLP transformed our leadership team within 90 days. Their understanding of our culture and strategic needs was exceptional. They did not just send resumes  -  they presented leaders who genuinely fit our vision. Our CTO placement has been transformational.', rating: 5 },
   { id: 2, name: 'Priya Sharma', role: 'CHRO', company: 'Global Pharma Industries', content: 'Working with AMCLLP on our C-suite search was a game-changer. Their rigorous assessment process and deep market insights gave us confidence in every candidate they presented. The quality of our leadership bench has improved significantly.', rating: 5 },
-  { id: 3, name: 'Rajesh Kumar', role: 'Managing Director', company: 'SteelCorp Manufacturing', content: 'We had struggled to fill our VP Operations role for six months. AMCLLP identified the right candidate within three weeks — someone who was not even actively looking. Their network and approach are truly world-class.', rating: 5 },
+  { id: 3, name: 'Rajesh Kumar', role: 'Managing Director', company: 'SteelCorp Manufacturing', content: 'We had struggled to fill our VP Operations role for six months. AMCLLP identified the right candidate within three weeks  -  someone who was not even actively looking. Their network and approach are truly world-class.', rating: 5 },
 ]
 
 export default function TestimonialsSection() {

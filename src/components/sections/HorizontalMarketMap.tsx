@@ -73,7 +73,7 @@ const marketSectors: MarketSector[] = [
   {
     id: 'cybersecurity',
     title: 'Cybersecurity',
-    description: 'Identifying top-tier security talent — from red-team operators to CISO-level leadership.',
+    description: 'Identifying top-tier security talent  -  from red-team operators to CISO-level leadership.',
     icon: Shield,
     gradient: 'from-red-500/10 to-rose-500/5',
     borderGlow: 'shadow-red-500/10',

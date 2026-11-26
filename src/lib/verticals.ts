@@ -99,7 +99,7 @@ export const verticals: Vertical[] = [
     tag: 'CUSTOM AI & SOFTWARE ENGINEERING',
     headline: 'Production-Grade AI Systems, Custom SaaS, and Agentic Workflows.',
     subtext:
-      'We turn complex operational problems into scalable, production-ready code — without bloated agency overhead.',
+      'We turn complex operational problems into scalable, production-ready code  -  without bloated agency overhead.',
     accent: 'cyan',
     cta: 'View Engineering Services',
     ctaHref: '/engineering',

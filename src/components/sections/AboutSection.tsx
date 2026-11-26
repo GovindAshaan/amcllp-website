@@ -59,7 +59,7 @@ export default function AboutSection() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.6 }}
               >
-                At <strong className="text-navy-500">Ashans Management Consultancy LLP</strong>, we don't just fill positions — we build the leadership backbone that powers organizational success. We position ourselves as your <strong className="text-navy-500">business growth partner</strong> rather than a conventional recruitment agency.
+                At <strong className="text-navy-500">Ashans Management Consultancy LLP</strong>, we don't just fill positions  -  we build the leadership backbone that powers organizational success. We position ourselves as your <strong className="text-navy-500">business growth partner</strong> rather than a conventional recruitment agency.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -67,7 +67,7 @@ export default function AboutSection() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.7 }}
               >
-                With deep expertise in executive search, leadership hiring, and workforce strategy, we understand that the right talent is not just a resource — it is the engine that drives competitive advantage, innovation, and sustainable growth.
+                With deep expertise in executive search, leadership hiring, and workforce strategy, we understand that the right talent is not just a resource  -  it is the engine that drives competitive advantage, innovation, and sustainable growth.
               </motion.p>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}

@@ -100,9 +100,9 @@ export default function OperatingCompaniesGrid() {
 function subCopy(slug: string): string {
   switch (slug) {
     case 'ai-labs':
-      return 'ScaleAIHub — an end-to-end career acceleration and placement ecosystem powered by 12 specialized AI modules. BookFulfillment OS — a multi-tenant B2B publishing engine generating KDP-ready manuscripts, chapter-wise audiobooks, and print-ready covers.'
+      return 'ScaleAIHub  -  an end-to-end career acceleration and placement ecosystem powered by 12 specialized AI modules. BookFulfillment OS  -  a multi-tenant B2B publishing engine generating KDP-ready manuscripts, chapter-wise audiobooks, and print-ready covers.'
     case 'engineering':
-      return 'We architect custom multi-tenant SaaS platforms, RAG knowledge pipelines, autonomous voice calling agents, CRM integrations, and browser extensions — built by engineers with deep enterprise pedigree.'
+      return 'We architect custom multi-tenant SaaS platforms, RAG knowledge pipelines, autonomous voice calling agents, CRM integrations, and browser extensions  -  built by engineers with deep enterprise pedigree.'
     case 'prudent-headhunterz':
       return 'Building on over a decade of enterprise recruitment pedigree, Prudent Headhunterz identifies, vets, and closes top-tier engineering, product, and C-suite talent for startups and enterprises.'
     default:

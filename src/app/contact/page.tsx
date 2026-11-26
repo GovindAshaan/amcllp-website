@@ -2,18 +2,16 @@
 
 import { useState } from 'react'
 import { Mail, Phone, MapPin, ArrowRight, CalendarClock, Loader2, ExternalLink } from 'lucide-react'
-import Navbar from '@/components/ui/Navbar'
-import ScrollProgressBar from '@/components/ui/ScrollProgressBar'
-import Footer from '@/components/ui/Footer'
+import DepthHeroHeader from '@/components/ui/DepthHeroHeader'
 
 const CALENDLY_URL = 'https://calendly.com/amcventure/amc-venture-meeting'
 const WEB3FORMS_ACCESS_KEY = '42913500-91da-4ab1-b64d-8e971968643a'
 
 const verticalOptions = [
-  'Ashan AI Labs — ScaleAIHub / BookFulfillment OS',
-  'Ashan AI Engineering — Custom AI / SaaS Build',
-  'Prudent Headhunterz — Executive & Tech Hiring',
-  'GrowthDesk — Performance Marketing & Funnels',
+  'Ashan AI Labs: ScaleAIHub / BookFulfillment OS',
+  'Ashan AI Engineering: Custom AI / SaaS Build',
+  'Prudent Headhunterz: Executive & Tech Hiring',
+  'GrowthDesk: Performance Marketing & Funnels',
   'Not sure yet',
 ]
 
@@ -61,7 +59,7 @@ export default function ContactPage() {
       formData.append('objective', form.objective)
       formData.append('message', form.message)
       formData.append('from_name', 'AMC Venture & Tech Group Website')
-      formData.append('subject', `New Lead from ${form.name || 'Website Visitor'} — ${form.objective || 'Consultation Request'}`)
+      formData.append('subject', `New Lead from ${form.name || 'Website Visitor'}: ${form.objective || 'Consultation Request'}`)
 
       const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
@@ -90,34 +88,17 @@ export default function ContactPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#070A13]">
-      <ScrollProgressBar />
-      <Navbar />
-
-      {/* Hero */}
-      <section className="relative pt-40 pb-16 overflow-hidden bg-[#070A13]">
-        <div className="absolute inset-0">
-          <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-electric-indigo-500/10 rounded-full blur-[160px]" />
-          <div className="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] bg-venture-emerald-500/6 rounded-full blur-[140px]" />
-        </div>
-        <div className="absolute inset-0 geo-grid opacity-50" />
-
-        <div className="container-custom relative z-10 text-center">
-          <a href="/" className="inline-flex items-center gap-2 text-xs text-white/40 hover:text-white/70 transition-colors mb-6">
-            ← Back to the ecosystem
-          </a>
-          <h1 className="text-4xl md:text-6xl font-display font-bold text-white max-w-3xl mx-auto text-balance leading-tight">
-            Book a <span className="text-gradient-venture">Strategy Call</span>
-          </h1>
-          <p className="mt-5 text-white/45 text-lg max-w-xl mx-auto">
-            Tell us which part of your business you&apos;re scaling next and a specialist from the right division will
-            reach out within one business day.
-          </p>
-        </div>
-      </section>
+    <>
+      <DepthHeroHeader
+        eyebrow="Contact · Book a strategy call"
+        title={<>Book a <span className="text-gradient-venture">Strategy Call</span></>}
+        subtitle="Tell us which part of your business you are scaling next and a specialist from the right division will reach out within one business day."
+        crumbLabel="Back to the ecosystem"
+        crumbHref="/"
+      />
 
       {/* Form + channels */}
-      <section className="relative pb-24 overflow-hidden bg-[#070A13]">
+      <section className="relative pb-24 overflow-hidden">
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-5 gap-8 items-start">
             {/* Contact channels */}
@@ -150,8 +131,7 @@ export default function ContactPage() {
                   </div>
                   <h2 className="text-2xl font-display font-bold text-white">Request received.</h2>
                   <p className="text-white/50 mt-3 max-w-md mx-auto">
-                    Thanks for reaching out — your details have been sent to the AMC venture team. We&apos;ve opened our
-                    scheduling calendar so you can lock in your strategy call right away.
+                    Thanks for reaching out. Your details have been sent to the AMC venture team. We have opened our scheduling calendar so you can lock in your strategy call right away.
                   </p>
                   <a
                     href={`${CALENDLY_URL}?name=${encodeURIComponent(form.name)}&email=${encodeURIComponent(form.email)}`}
@@ -259,8 +239,6 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-
-      <Footer />
-    </main>
+    </>
   )
 }
