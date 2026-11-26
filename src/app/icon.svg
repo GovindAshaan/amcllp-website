@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="512" height="512">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#111625"/>
+      <stop offset="0.5" stop-color="#0A0F1A"/>
+      <stop offset="1" stop-color="#070A13"/>
+    </linearGradient>
+    <linearGradient id="rim" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6366F1" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#00F0FF" stop-opacity="0.65"/>
+    </linearGradient>
+    <linearGradient id="am" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.5" stop-color="#22D3EE"/>
+      <stop offset="1" stop-color="#6366F1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Rounded tile -->
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="url(#bg)"/>
+  <rect x="2" y="2" width="60" height="60" rx="14" fill="none" stroke="url(#rim)" stroke-width="1"/>
+
+  <!-- AM monogram -->
+  <text x="32" y="34" text-anchor="middle" dominant-baseline="central"
+        font-family="'Space Grotesk','Inter','Arial',sans-serif"
+        font-size="26" font-weight="800" letter-spacing="-1"
+        fill="url(#am)">AM</text>
+
+  <!-- Gradient base line (mirrors Logo underline) -->
+  <line x1="14" y1="46" x2="50" y2="46" stroke="url(#rim)" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
