@@ -4,12 +4,11 @@ import VerticalPageLayout from '@/components/layout/VerticalPageLayout'
 import DepthHeroHeader from '@/components/ui/DepthHeroHeader'
 import ServicePillarsGrid from '@/components/sections/ServicePillarsGrid'
 import VerticalCTASection from '@/components/sections/VerticalCTASection'
+import JsonLd from '@/components/seo/JsonLd'
+import { pageMeta } from '@/lib/seo-config'
+import { innerPageGraph } from '@/lib/schema'
 
-export const metadata: Metadata = {
-  title: 'GrowthDesk | Performance Marketing & Funnel Engine',
-  description:
-    'GrowthDesk builds done-for-you customer acquisition infrastructure: direct-response funnels, algorithmic paid media, and automated follow-up systems.',
-}
+export const metadata: Metadata = pageMeta({ path: '/growthdesk' })
 
 const pillars = [
   {
@@ -50,6 +49,7 @@ const pillars = [
 export default function GrowthDeskPage() {
   return (
     <VerticalPageLayout>
+      <JsonLd data={innerPageGraph('/growthdesk', 'GrowthDesk')} />
       <DepthHeroHeader
         eyebrow="GrowthDesk · Performance Marketing Engine"
         title={<>Predictable Pipeline, <span className="text-gradient-venture">Engineered for ROI.</span></>}

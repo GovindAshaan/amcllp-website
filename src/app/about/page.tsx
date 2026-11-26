@@ -4,15 +4,14 @@ import VerticalPageLayout from '@/components/layout/VerticalPageLayout'
 import DepthHeroHeader from '@/components/ui/DepthHeroHeader'
 import ScrollReveal from '@/components/ui/ScrollReveal'
 import TiltGlassCard from '@/components/ui/TiltGlassCard'
+import JsonLd from '@/components/seo/JsonLd'
 import { verticals } from '@/lib/verticals'
+import { pageMeta } from '@/lib/seo-config'
+import { entityGraph } from '@/lib/schema'
 
 const ABOUT_GLOW = '#A595FF'
 
-export const metadata: Metadata = {
-  title: 'About | AMC Venture & Tech Group',
-  description:
-    'AMC Venture & Tech Group is an integrated technology and business acceleration house uniting products, engineering, talent, and growth under one roof.',
-}
+export const metadata: Metadata = pageMeta({ path: '/about' })
 
 const iconMap = {
   'ai-labs': Boxes,
@@ -24,19 +23,21 @@ const iconMap = {
 export default function AboutPage() {
   return (
     <VerticalPageLayout showRouting={false}>
+      <JsonLd data={entityGraph('/about')} />
       <DepthHeroHeader
-        eyebrow="About Amc"
-        title={<>We unify <span className="text-gradient-venture">Code, Talent, and Revenue</span> under one roof.</>}
-        subtitle="Founded by software engineers turned serial entrepreneurs, AMC Venture & Tech Group elevates the parent brand from a traditional consultancy into a modern technology holding and venture studio, while preserving the amcllp.com domain and legal entity, Ashans Management Consultancy LLP (AMCLLP)."
+        eyebrow="About · Govind Ashan, Founder"
+        title={<>Govind Ashan</>}
+        subtitle="Govind Ashan (also spelled Govind Ashaan) is the Founder & Managing Partner of AMC Venture & Tech Group (amcllp.co.in) and Ashans Management Consultancy LLP, founded in 2012. The software-engineer-turned-entrepreneur elevated a traditional consultancy into a modern technology holding and venture studio while preserving the amcllp.co.in domain and legal entity."
         crumbLabel="Back to the ecosystem"
         crumbHref="/"
         primaryCta={{ label: 'Work With Us', href: '/contact' }}
       />
 
-      {/* Why section */}
+      {/* Profile + why section */}
       <section className="relative py-16 overflow-hidden">
         <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-12 items-start">
           <ScrollReveal className="space-y-4 text-white/45 leading-relaxed text-base md:text-lg">
+            <h2 className="text-2xl md:text-3xl font-display font-bold text-white">Govind Ashan, Founder &amp; Managing Partner</h2>
             <p>
               Traditional vendors work in silos: software agencies don&apos;t understand customer acquisition,
               recruiters don&apos;t understand modern AI architectures, and marketing agencies don&apos;t understand

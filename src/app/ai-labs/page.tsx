@@ -2,12 +2,11 @@ import type { Metadata } from 'next'
 import VerticalPageLayout from '@/components/layout/VerticalPageLayout'
 import DepthHeroHeader from '@/components/ui/DepthHeroHeader'
 import ProductShowcase from '@/components/sections/ProductShowcase'
+import JsonLd from '@/components/seo/JsonLd'
+import { pageMeta } from '@/lib/seo-config'
+import { innerPageGraph } from '@/lib/schema'
 
-export const metadata: Metadata = {
-  title: 'Ashan AI Labs | AI Product Studio - ScaleAIHub & BookFulfillment OS',
-  description:
-    'Ashan AI Labs is the proprietary R&D and SaaS venture arm of AMC Venture & Tech Group - home of ScaleAIHub, the AI career and placement operating system, and BookFulfillment OS, a multi-tenant publishing engine.',
-}
+export const metadata: Metadata = pageMeta({ path: '/ai-labs' })
 
 const products = [
   {
@@ -47,6 +46,7 @@ const products = [
 export default function AILabsPage() {
   return (
     <VerticalPageLayout>
+      <JsonLd data={innerPageGraph('/ai-labs', 'Ashan AI Labs')} />
       <DepthHeroHeader
         eyebrow="Ashan AI Labs · AI Product Studio"
         title={<>Autonomous AI, <span className="text-gradient-venture">Built to Eliminate Bottlenecks.</span></>}

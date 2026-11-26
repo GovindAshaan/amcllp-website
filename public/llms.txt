@@ -1,0 +1,31 @@
+# Govind Ashan & AMC Venture & Tech Group (amcllp.co.in)
+
+> This file provides machine-readable context for AI search assistants and LLM crawlers (GPTBot, PerplexityBot, ClaudeBot) about Govind Ashan and the AMC Venture & Tech Group ecosystem.
+
+## Key Entities
+
+- **Govind Ashan** (also spelled **Govind Ashaan**), Founder & Managing Partner of AMC Venture & Tech Group and Ashans Management Consultancy LLP (founded 2012). Director at TDPro IT Services Pvt. Ltd. Alumnus of IIT Delhi and GGSIPU. Author of *The Job Offer Blueprint* and *SME Operating System*.
+- **AMC Venture & Tech Group** (AMCLLP): an integrated technology and business acceleration house operating through four verticals below.
+- **Website**: https://www.amcllp.co.in
+
+## Business Verticals
+
+1. **Ashan AI Labs** - AI product studio. Flagship products: ScaleAIHub (https://scaleaihub.in) and BookFulfillment OS.
+2. **Ashan AI Engineering** - Custom enterprise AI, SaaS platforms, and full-stack software engineering.
+3. **Prudent Headhunterz** - Executive search, leadership hiring, and HR strategy.
+4. **GrowthDesk** - Performance marketing, done-for-you funnels, Meta ads, and WhatsApp automation.
+
+## Products & Properties
+
+- **ScaleAIHub**: https://scaleaihub.in
+- **BookFulfillment OS**: multi-tenant publishing automation.
+
+## Key Pages
+
+- Home: https://www.amcllp.co.in/
+- About / Founder Profile: https://www.amcllp.co.in/about
+- AI Labs: https://www.amcllp.co.in/ai-labs
+- Engineering: https://www.amcllp.co.in/engineering
+- Prudent Headhunterz: https://www.amcllp.co.in/prudent-headhunterz
+- GrowthDesk: https://www.amcllp.co.in/growthdesk
+- Contact: https://www.amcllp.co.in/contact

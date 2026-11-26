@@ -4,12 +4,11 @@ import VerticalPageLayout from '@/components/layout/VerticalPageLayout'
 import DepthHeroHeader from '@/components/ui/DepthHeroHeader'
 import ServicePillarsGrid from '@/components/sections/ServicePillarsGrid'
 import VerticalCTASection from '@/components/sections/VerticalCTASection'
+import JsonLd from '@/components/seo/JsonLd'
+import { pageMeta } from '@/lib/seo-config'
+import { innerPageGraph } from '@/lib/schema'
 
-export const metadata: Metadata = {
-  title: 'Prudent Headhunterz | Executive Search & HR Consulting',
-  description:
-    'Prudent Headhunterz bridges technical depth and leadership assessment: premier executive search, technical hiring, and HR consulting for enterprises and funded startups.',
-}
+export const metadata: Metadata = pageMeta({ path: '/prudent-headhunterz' })
 
 const pillars = [
   {
@@ -50,6 +49,7 @@ const pillars = [
 export default function PrudentHeadhunterzPage() {
   return (
     <VerticalPageLayout>
+      <JsonLd data={innerPageGraph('/prudent-headhunterz', 'Prudent Headhunterz')} />
       <DepthHeroHeader
         eyebrow="Prudent Headhunterz · Executive Search & HR"
         title={<>Hire Leaders Who <span className="text-gradient-venture">Actually Run It.</span></>}

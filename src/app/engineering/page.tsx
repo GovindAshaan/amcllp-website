@@ -4,12 +4,11 @@ import VerticalPageLayout from '@/components/layout/VerticalPageLayout'
 import DepthHeroHeader from '@/components/ui/DepthHeroHeader'
 import ServicePillarsGrid from '@/components/sections/ServicePillarsGrid'
 import VerticalCTASection from '@/components/sections/VerticalCTASection'
+import JsonLd from '@/components/seo/JsonLd'
+import { pageMeta } from '@/lib/seo-config'
+import { innerPageGraph } from '@/lib/schema'
 
-export const metadata: Metadata = {
-  title: 'Ashan AI Engineering | Custom AI Software & SaaS Development',
-  description:
-    'Ashan AI Engineering partners with founders and enterprise teams to architect, build, and deploy custom AI applications, scalable SaaS platforms, and autonomous workflow infrastructure.',
-}
+export const metadata: Metadata = pageMeta({ path: '/engineering' })
 
 const pillars = [
   {
@@ -50,6 +49,7 @@ const pillars = [
 export default function EngineeringPage() {
   return (
     <VerticalPageLayout>
+      <JsonLd data={innerPageGraph('/engineering', 'Ashan AI Engineering')} />
       <DepthHeroHeader
         eyebrow="Ashan AI Engineering · Custom AI & Software"
         title={<><span className="text-gradient-venture">Custom AI Systems</span> Engineered for Real Production.</>}

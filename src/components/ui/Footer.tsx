@@ -3,7 +3,8 @@ import Logo from './Logo'
 
 const companyLinks = [
   { label: 'Group Home', href: '/' },
-  { label: 'About', href: '/contact' },
+  { label: 'About', href: '/about' },
+  { label: 'Govind Ashan', href: '/about#govind-ashan' },
   { label: 'Book a Strategy Call', href: '/contact' },
 ]
 
@@ -38,7 +39,14 @@ export default function Footer() {
             <p className="text-white/40 text-sm leading-relaxed mt-6 max-w-sm">
               An integrated technology and business acceleration house uniting
               <span className="text-white/70"> products, engineering, talent, and growth</span>
-              under one roof  -  an Ashans Management Consultancy LLP (AMCLLP) enterprise.
+              under one roof. An Ashans Management Consultancy LLP (AMCLLP) enterprise.
+            </p>
+            <p className="text-white/30 text-xs mt-3">
+              Founded by{' '}
+              <a href="/about" className="text-white/60 hover:text-electric-indigo-400 transition-colors">
+                Govind Ashan
+              </a>{' '}
+              · Govind Ashaan
             </p>
             <div className="flex gap-3 mt-6">
               {[Linkedin, Twitter, Globe].map((Icon, i) => (
